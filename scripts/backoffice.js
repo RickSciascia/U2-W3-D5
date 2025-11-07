@@ -7,6 +7,35 @@ const url = location.search;
 const urlParameters = new URLSearchParams(url);
 const id = urlParameters.get("productID");
 
+// SE L ID ESISTE SIGNIFICA CHE POSSO ELIMINARE IL PRODOTTO DA DATABASE
+// QUINDI DOPO AVER APPESO IL BOTTONE DELETE CHE SI GENERA SOLO SE c'è ID
+const deleteProduct = function () {
+  if (!id) {
+    console.log("ID non trovato, impossibile eliminare.");
+    return;
+  }
+  if (!confirm("Sei sicuro di voler eliminare questo prodotto?")) {
+    return;
+  }
+  fetch(endpoint + id, {
+    method: "DELETE",
+    headers: {
+      Authorization: authkey,
+    },
+  })
+    .then((res) => {
+      if (res.ok) {
+        alert("PRODOTTO ELIMINATO DEFINITIVAMENTE");
+        location.assign("./crudazon.html");
+      } else {
+        throw new Error("errore di risposta dal server:", res.status);
+      }
+    })
+    .catch((error) => {
+      console.log("ERRORE in eliminazione", error);
+    });
+};
+
 // entrerò in questo IF SOLO SE esiste l ID altrimenti il resto del codice viene eseguito regolarmente
 if (id) {
   fetch(endpoint + id, {
@@ -30,9 +59,9 @@ if (id) {
       const allH3 = document.getElementsByTagName("h3");
       allH3[0].innerText = "Modifica Prodotto:";
       const newBtnDel = document.createElement("button");
-      newBtnDel.innerText = "CANCELLA";
+      newBtnDel.innerText = "ELIMINA PERMANENTEMENTE";
       newBtnDel.setAttribute("class", "btn btn-danger my-3");
-      newBtnDel.setAttribute("onclick", "delete()");
+      newBtnDel.setAttribute("onclick", "deleteProduct()");
       document.getElementsByClassName("col-lg-6")[0].appendChild(newBtnDel);
     })
     .catch((error) => {
