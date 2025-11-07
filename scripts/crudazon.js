@@ -33,13 +33,13 @@ getProducts = function () {
         newCol.innerHTML = `
         <div class="card h-100 d-flex flex-column">
           <img src="${imageUrl}" class="card-img-top" alt="img-${name}">
-        <div class="card-body flex-grow-1">
+        <div class="card-body flex-grow-1 d-flex flex-column">
             <h5 class="card-title">${name}</h5>
             <h6>Descrizione Prodotto:</h6>
-            <p class="card-text">${description}</p>
+            <p class="card-text flex-grow-1">${description}</p>
             <h6>Brand:</h6>
             <p class="card-text">${brand}</p>
-            <p class="card-text text-danger fw-bold fs-5">Prezzo: ${price} €</p>
+            <p class="card-text text-danger fw-bold fs-5 text-center">Prezzo: ${price} €</p>
             </div>
             <a href="./details.html?productID=${productID}" class="btn btn-primary w-50 align-self-center my-3">Dettagli</a>
         </div>`;

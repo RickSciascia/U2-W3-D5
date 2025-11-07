@@ -83,6 +83,9 @@ class ProductsObject {
 
 const form = document.getElementById("product-form");
 const formReset = () => {
+  if (!confirm("Sei sicuro di voler resettare i campi per questo prodotto?")) {
+    return;
+  }
   form.reset();
 };
 form.addEventListener("submit", (e) => {
