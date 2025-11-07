@@ -48,7 +48,42 @@
     <main class="flex-grow-1">
       <h3 class="m-3">DETTAGLIO PRODOTTO:</h3>
       <div class="container">
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-3"></div>
+        <div class="row justify-content-center">
+          <div class="col col-12 col-md-10 col-lg-8">
+            <div class="card">
+              <img
+                src="https://lipsum.app/600x600"
+                class="card-img-top img-fluid mw-100 mh-100"
+                alt="img-placeholder"
+                id="imgUrl"
+              />
+              <div class="card-body">
+                <h5 class="card-title" id="name">Lorem Ipsum</h5>
+                <h6>Descrizione Prodotto:</h6>
+                <p class="card-text" id="description">
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                  Officiis eum cupiditate eius esse explicabo, minima quia autem
+                  beatae, excepturi cum doloribus dicta adipisci ipsum
+                  consequuntur. Unde, accusamus assumenda esse, iusto officiis
+                  doloremque aut a placeat provident veniam quidem veritatis,
+                  suscipit odit voluptas quaerat repellendus blanditiis qui illo
+                  quam ut nesciunt?
+                </p>
+                <h6>Brand:</h6>
+                <p class="card-text" id="brand">Lorem</p>
+                <p class="card-text text-danger fw-bold fs-5" id="price">
+                  Prezzo: 99999999 €
+                </p>
+                <button onclick="editData()" class="btn btn-warning">
+                  MODIFICA PRODOTTO
+                </button>
+                <button onclick="deleteData()" class="btn btn-danger">
+                  ELIMINA PRODOTTO
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </main>
     <footer class="mt-3">
