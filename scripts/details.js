@@ -27,7 +27,7 @@ const getDetails = function () {
       document.getElementById("description").innerText =
         dataProdotto.description;
       document.getElementById("brand").innerText = dataProdotto.brand;
-      document.getElementById("price").innerText = dataProdotto.price;
+      document.getElementById("price").innerText = dataProdotto.price + " €";
       document
         .getElementById("imgUrl")
         .setAttribute("src", dataProdotto.imageUrl);
@@ -37,3 +37,9 @@ const getDetails = function () {
     });
 };
 getDetails();
+
+// ora logica bottoni
+
+const editData = function () {
+  location.assign("./backoffice.html?productID=" + id);
+};
